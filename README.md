@@ -21,7 +21,7 @@ RevoHotel is a modern Hotel Booking Platform built with the latest web technolog
 - **Payment Integration**: Seamless payment processing via Midtrans.
 - **Responsive Design**: Modern UI optimized for both desktop and mobile devices.
 
-## Deployed Website
+## 🚀 Deployed Website
 
 **Link :** crack-fe-rifqifzan-6qeq5ympw-rifqi-fauzans-projects-fb61a8a3.vercel.app
 
