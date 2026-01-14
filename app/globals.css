@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-emerald-900: #1B4332;
+  --color-gold-400: #B08968;
+  --color-cream-50: #FDFBF7;
+  --color-slate-700: #444444;
+}
+
+@layer base {
+  body {
+    @apply bg-cream-50 text-slate-700;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-emerald-900;
+  }
+}
+
+@utility bg-pattern {
+  background-color: #FDFBF7;
+  background-image: 
+    radial-gradient(#B08968 0.5px, transparent 0.5px),
+    radial-gradient(#B08968 0.5px, #FDFBF7 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  opacity: 0.4;
+}
+
