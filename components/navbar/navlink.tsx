@@ -65,14 +65,16 @@ const Navlink = () => {
               About
             </Link>
           </li>
-          <li>
-            <Link
-              className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
-              href={`/room`}
-            >
-              Rooms
-            </Link>
-          </li>
+          {session?.user.role !== "admin" && (
+            <li>
+              <Link
+                className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
+                href={`/room`}
+              >
+                Rooms
+              </Link>
+            </li>
+          )}
           <li>
             <Link
               className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
@@ -110,6 +112,22 @@ const Navlink = () => {
                       href={`/admin/room`}
                     >
                       Manage Room
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
+                      href={`/admin/reservations`}
+                    >
+                      Reservations
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
+                      href={`/admin/amenities`}
+                    >
+                      Amenities
                     </Link>
                   </li>
                 </>

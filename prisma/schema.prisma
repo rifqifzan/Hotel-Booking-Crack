@@ -46,7 +46,8 @@ model Reservation {
   updatedAt DateTime @updatedAt
   roomId    String
   startDate DateTime
-  Payment   Payment?
+  Payment              Payment?
+  CancelledReservation CancelledReservation?
   Room      Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
   User      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
@@ -58,6 +59,14 @@ model Payment {
   status        String      @default("unpaid")
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+  reservationId String      @unique
+  Reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+}
+
+model CancelledReservation {
+  id            String      @id @default(cuid())
+  reason        String
+  deletedAt     DateTime    @default(now())
   reservationId String      @unique
   Reservation   Reservation @relation(fields: [reservationId], references: [id], onDelete: Cascade)
 }
@@ -93,4 +102,14 @@ model Account {
   user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([provider, providerAccountId])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

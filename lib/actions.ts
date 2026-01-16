@@ -1,5 +1,10 @@
 "use server";
-import { RoomSchema, ReserveSchema } from "@/lib/zod";
+import {
+  RoomSchema,
+  ReserveSchema,
+  AmenitiesSchema,
+  ContactSchema,
+} from "@/lib/zod";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { del } from "@vercel/blob";
@@ -134,7 +139,7 @@ export const deleteRoom = async (id: string, image: string) => {
   revalidatePath("/admin/room");
 };
 
-//Creare new Reserve
+//Create new Reserve
 export const createReserve = async (
   roomId: string,
   price: number,
@@ -197,4 +202,135 @@ export const createReserve = async (
     console.log(error);
   }
   redirect(`/checkout/${reservationId}`);
+};
+
+// Save Amenities
+export const saveAmenities = async (prevState: unknown, formData: FormData) => {
+  const validatedFields = AmenitiesSchema.safeParse({
+    name: formData.get("name"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      error: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  try {
+    await prisma.amenities.create({
+      data: {
+        name: validatedFields.data.name,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/admin/amenities");
+  redirect("/admin/amenities");
+};
+
+// Update Amenities
+export const updateAmenities = async (
+  id: string,
+  prevState: unknown,
+  formData: FormData
+) => {
+  const validatedFields = AmenitiesSchema.safeParse({
+    name: formData.get("name"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      error: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  try {
+    await prisma.amenities.update({
+      data: {
+        name: validatedFields.data.name,
+      },
+      where: { id },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/admin/amenities");
+  redirect("/admin/amenities");
+};
+
+// Delete Amenities
+export const deleteAmenities = async (id: string) => {
+  try {
+    await prisma.amenities.delete({
+      where: { id },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/admin/amenities");
+};
+
+// Cancel Reservation
+// Cancel Reservation
+export const cancelReservation = async (
+  reservationId: string,
+  prevState: unknown,
+  formData: FormData
+) => {
+  const reason = formData.get("reason") as string;
+  try {
+    await prisma.cancelledReservation.create({
+      data: {
+        reservationId,
+        reason,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/admin/reservations");
+};
+
+// Contact Message
+export const ContactMessage = async (
+  prevState: unknown,
+  formData: FormData
+) => {
+  const rawData = {
+    name: formData.get("name"),
+    email: formData.get("email"),
+    subject: formData.get("subject"),
+    message: formData.get("message"),
+  };
+
+  const validatedFields = ContactSchema.safeParse(rawData);
+
+  if (!validatedFields.success) {
+    return {
+      error: validatedFields.error.flatten().fieldErrors,
+      formData: rawData,
+    };
+  }
+
+  const { name, email, subject, message } = validatedFields.data;
+
+  try {
+    await prisma.contactMessage.create({
+      data: {
+        name,
+        email,
+        subject,
+        message,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return {
+      message: "Failed to send message. Please try again.",
+      formData: rawData,
+    };
+  }
+
+  return { success: "Message sent successfully!" };
 };

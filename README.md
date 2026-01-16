@@ -21,10 +21,6 @@ RevoHotel is a modern Hotel Booking Platform built with the latest web technolog
 - **Payment Integration**: Seamless payment processing via Midtrans.
 - **Responsive Design**: Modern UI optimized for both desktop and mobile devices.
 
-## 🚀 Deployed Website
-
-**Link :** crack-fe-rifqifzan-6qeq5ympw-rifqi-fauzans-projects-fb61a8a3.vercel.app
-
 ## 🛠️ Getting Started
 
 Follow these steps to set up the project locally.
@@ -32,21 +28,18 @@ Follow these steps to set up the project locally.
 ### Prerequisites
 
 Ensure you have the following installed:
-
 - [Node.js](https://nodejs.org/) (v20 or higher recommended)
 - [PostgreSQL](https://www.postgresql.org/) database
 
 ### Installation
 
 1.  **Clone the repository:**
-
     ```bash
     git clone <repository-url>
     cd crack-fe-rifqifzan
     ```
 
 2.  **Install dependencies:**
-
     ```bash
     npm install
     ```
