@@ -4,7 +4,7 @@ RevoHotel is a modern Hotel Booking Platform built with the latest web technolog
 
 ## 🚀 Deployed Link
 
-https://crack-fe-rifqifzan-6qeq5ympw-rifqi-fauzans-projects-fb61a8a3.vercel.app/
+https://crack-fe-rifqifzan.vercel.app/
 
 ## 🚀 Tech Stack
 
