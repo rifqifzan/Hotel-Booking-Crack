@@ -59,7 +59,7 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-          {/* Contact Form */}
+
           <ContactForm />
         </div>
       </div>

@@ -55,13 +55,6 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
               <span className="text-gray-400 text-sm">/Night</span>
             </h1>
           </div>
-          {/* <BookForm
-            post={post}
-            order={order}
-            StartDate={StartDate}
-            EndDate={EndDate}
-            rate={rate.idr}
-          /> */}
           <ReserveForm room={room} disabledDate={disabledDate} />
         </div>
       </div>

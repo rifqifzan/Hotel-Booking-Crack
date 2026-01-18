@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-// import { auth } from "@/auth";
-// import { redirect } from "next/navigation";
 import { LuUsers, LuChartArea, LuShoppingCart } from "react-icons/lu";
 
 export const metadata: Metadata = {
@@ -8,10 +6,6 @@ export const metadata: Metadata = {
 };
 
 const Dashboard = async () => {
-  //   const session = await auth();
-  //   if (!session || !session.user || !session?.user?.id) redirect("/signin");
-  //   if (session.user.role !== "admin") redirect("/");
-
   return (
     <div className="max-w-screen-xl mx-auto py-16 mt-10 px-4">
       <div className="grid md:grid-cols-3 gap-5 pb-10">

@@ -272,7 +272,6 @@ export const deleteAmenities = async (id: string) => {
 };
 
 // Cancel Reservation
-// Cancel Reservation
 export const cancelReservation = async (
   reservationId: string,
   prevState: unknown,

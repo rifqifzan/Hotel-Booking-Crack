@@ -6,7 +6,7 @@ import { PaymentButton } from "@/components/payment-button";
 
 const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
   const reservation = await getReservationById(reservationId);
-  // console.log(reservation);
+
   if (!reservation || !reservation.Payment)
     return <h1>No Reservation Found</h1>;
 

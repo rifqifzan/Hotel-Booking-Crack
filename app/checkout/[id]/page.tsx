@@ -17,7 +17,6 @@ const CheckOut = async ({ params }: { params: Promise<{ id: string }> }) => {
       <Suspense fallback={<p>Loading...</p>}>
         <CheckoutDetail reservationId={reservationId} />
       </Suspense>
-      {/* cange to https://app.sandbox.midtrans.com/snap/snap.js for development */}
       <Script
         src="https://app.sandbox.midtrans.com/snap/snap.js"
         data-client-key={process.env.NEXT_PUBLIC_MIDTRANS_CLIENT_KEY}

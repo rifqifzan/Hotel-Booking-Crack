@@ -173,8 +173,6 @@ const ReservationDetail = async ({
           </tfoot>
         </table>
       </div>
-
-      {/* end table */}
     </div>
   );
 };

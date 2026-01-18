@@ -12,7 +12,10 @@ export const metadata: Metadata = {
 const About = () => {
   return (
     <div>
-      <TitleSection title="About Us" subTitle="Experience the art of hospitality." />
+      <TitleSection
+        title="About Us"
+        subTitle="Experience the art of hospitality."
+      />
       <div className="max-w-screen-xl mx-auto py-20 px-4">
         <div className="grid md:grid-cols-2 gap-8">
           <Image src="/about-image.jpg" width={650} height={579} alt="about" />
@@ -21,10 +24,9 @@ const About = () => {
               Who we are
             </h1>
             <p className="text-gray-700 py-5">
-              {/* lorem20 */}
-              We are dedicated to providing an unforgettable experience. Our hotel
-              combines modern luxury with timeless elegance to ensure your stay
-              is perfect.
+              We are dedicated to providing an unforgettable experience. Our
+              hotel combines modern luxury with timeless elegance to ensure your
+              stay is perfect.
             </p>
             <ul className="list-item space-y-6 pt-8">
               <li className="flex gap-5">
@@ -34,9 +36,8 @@ const About = () => {
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold mb-1">Vision :</h4>
                   <p className="text-gray-600">
-                    {/* lorem15 */}
-                    To be the preferred destination for travelers seeking luxury,
-                    comfort, and personalized service.
+                    To be the preferred destination for travelers seeking
+                    luxury, comfort, and personalized service.
                   </p>
                 </div>
               </li>
@@ -47,7 +48,6 @@ const About = () => {
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold mb-1">Mission :</h4>
                   <p className="text-gray-600">
-                    {/* lorem20 */}
                     To create lasting memories for our guests through
                     exceptional hospitality and attention to detail.
                   </p>
@@ -55,7 +55,6 @@ const About = () => {
               </li>
             </ul>
           </div>
-          {/* Contact Form */}
         </div>
       </div>
     </div>

@@ -27,7 +27,6 @@ export const PaymentButton = ({
         if (token) {
           window.snap.pay(token);
         }
-        // revalidatePath("/checkout/[id]");
       } catch (error) {
         console.log(error);
       }
