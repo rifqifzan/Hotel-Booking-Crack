@@ -12,7 +12,6 @@ const MyOrder = async () => {
   const session = await auth();
   if (!session || !session.user || !session?.user?.id) redirect("/signin");
   const reservation = await getReservationByUserId();
-  console.log(reservation);
   if (!reservation?.length)
     return (
       <div className="min-h-screen bg-slate-50">
