@@ -3,8 +3,10 @@ import Link from "next/link";
 import { IoPeopleOutline } from "react-icons/io5";
 import { Room } from "@prisma/client";
 import { formatCurrency } from "@/lib/utils";
+import { auth } from "@/auth";
 
-const Card = ({ room }: { room: Room }) => {
+const Card = async ({ room }: { room: Room }) => {
+  const session = await auth();
   return (
     <div className="bg-white shadow-sm hover:shadow-2xl transition-all duration-300 rounded-[2px] border border-stone-100">
       {/* image waraper */}
@@ -22,7 +24,7 @@ const Card = ({ room }: { room: Room }) => {
         <h4 className="text-2xl font-serif font-medium text-emerald-900 mb-2">
           <Link
             href={`/room/${room.id}`}
-            className="hover:text-gold-400 transition duration-150"
+            className="hover:text-amber-400 transition duration-150"
           >
             {room.name}
           </Link>
@@ -41,12 +43,14 @@ const Card = ({ room }: { room: Room }) => {
               {room.capacity} {room.capacity === 1 ? "Guest" : "Guests"}
             </span>
           </div>
-          <Link
-            href={`/room/${room.id}`}
-            className="px-6 py-2.5 md:px-8 md:py-3 font-semibold text-white bg-gold-400 rounded-[2px] hover:bg-[#A37B5C] transition duration-200 text-sm uppercase tracking-wider"
-          >
-            Book Now
-          </Link>
+          {session?.user.role !== "admin" && (
+            <Link
+              href={`/room/${room.id}`}
+              className="px-6 py-2.5 md:px-8 md:py-3 font-semibold text-white bg-gold-400 rounded-[2px] hover:bg-[#A37B5C] transition duration-200 text-sm uppercase tracking-wider"
+            >
+              Book Now
+            </Link>
+          )}
         </div>
       </div>
     </div>
