@@ -23,11 +23,7 @@ const ReserveForm = ({
   const [startDate, setStartDate] = useState(StartDate);
   const [endDate, setEndDate] = useState(EndDate);
 
-  const handleDateChange = (dates: any) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
+
 
   const [state, formAction, isPending] = useActionState(
     createReserve.bind(null, room.id, room.price, startDate, endDate),
@@ -44,34 +40,55 @@ const ReserveForm = ({
   return (
     <div>
       <form action={formAction} className="space-y-6">
-        <div className="mb-4">
-          <label className="block mb-2 text-sm font-medium text-emerald-900 uppercase tracking-wider">
-            Arrival - Departure*
-          </label>
-          <DatePicker
-            selected={startDate}
-            startDate={startDate}
-            endDate={endDate}
-            minDate={new Date()}
-            selectsRange={true}
-            dateFormat={"dd-MM-YYYY"}
-            onChange={handleDateChange}
-            excludeDateIntervals={excludeDates}
-            wrapperClassName="w-full"
-            className="py-2.5 px-0 bg-transparent border-b border-gray-300 w-full focus:outline-none focus:border-emerald-900 font-light text-slate-700 placeholder-slate-400 transition-colors"
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+          <div className="flex flex-col">
+            <label className="block mb-2 text-sm font-medium text-emerald-900 uppercase tracking-wider">
+              arrival date
+            </label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date as Date)}
+              selectsStart
+              startDate={startDate}
+              endDate={endDate}
+              minDate={new Date()}
+              dateFormat="dd/MM/yyyy"
+              excludeDateIntervals={excludeDates}
+              placeholderText="dd/mm/yyyy"
+              className="py-2.5 px-0 bg-transparent border-b border-gray-300 w-full focus:outline-none focus:border-emerald-900 font-light text-slate-700 placeholder-slate-400 transition-colors"
+              wrapperClassName="w-full"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label className="block mb-2 text-sm font-medium text-emerald-900 uppercase tracking-wider">
+              departure date
+            </label>
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => setEndDate(date as Date)}
+              selectsEnd
+              startDate={startDate}
+              endDate={endDate}
+              minDate={startDate || new Date()}
+              dateFormat="dd/MM/yyyy"
+              excludeDateIntervals={excludeDates}
+              placeholderText="dd/mm/yyyy"
+              className="py-2.5 px-0 bg-transparent border-b border-gray-300 w-full focus:outline-none focus:border-emerald-900 font-light text-slate-700 placeholder-slate-400 transition-colors"
+              wrapperClassName="w-full"
+            />
+          </div>
 
-          <div aria-live="polite" aria-atomic="true">
+          <div aria-live="polite" aria-atomic="true" className="md:col-span-2">
             <p className="text-sm text-red-500 mt-2">{state?.messageDate}</p>
           </div>
         </div>
-        {/* Your Name */}
+        {/* Name */}
         <div className="mb-4">
           <label
             htmlFor="name"
             className="block mb-2 text-sm font-medium text-emerald-900 uppercase tracking-wider"
           >
-            Your Name*
+            Full Name
           </label>
           <input
             type="text"
@@ -83,13 +100,13 @@ const ReserveForm = ({
             <p className="text-sm text-red-500 mt-2">{state?.error?.name}</p>
           </div>
         </div>
-        {/* Phone Number */}
+        {/* Phone */}
         <div className="mb-4">
           <label
             htmlFor="phone"
             className="block mb-2 text-sm font-medium text-emerald-900 uppercase tracking-wider"
           >
-            Phone Number*
+            Phone Number
           </label>
           <input
             type="text"

@@ -75,14 +75,6 @@ const Navlink = () => {
               </Link>
             </li>
           )}
-          <li>
-            <Link
-              className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
-              href={`/contact`}
-            >
-              Contact
-            </Link>
-          </li>
           {/* Show menu base on session */}
           {session && (
             <>
@@ -134,6 +126,14 @@ const Navlink = () => {
               )}
             </>
           )}
+          <li>
+            <Link
+              className="block py-2 px-3 text-slate-700 hover:text-gold-400 transition-colors duration-200 md:p-0"
+              href={`/contact`}
+            >
+              Contact
+            </Link>
+          </li>
           {session ? (
             <li className="pt-2 md:pt-0">
               <button

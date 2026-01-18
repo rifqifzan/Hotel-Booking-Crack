@@ -24,7 +24,6 @@ const Footer = () => {
               />
             </Link>
             <p className="text-emerald-100/80 font-light leading-relaxed">
-              {/* lorem15 */}
               Experience luxury and comfort in the heart of the city. Your
               perfect stay awaits in our sharia-compliant sanctuary.
             </p>
@@ -72,7 +71,6 @@ const Footer = () => {
               Newsletter
             </h4>
             <p className="text-emerald-100/80 font-light mb-6">
-              {/* lorem7 */}
               Subscribe to our newsletter to receive exclusive offers and the
               latest news about our hotel.
             </p>

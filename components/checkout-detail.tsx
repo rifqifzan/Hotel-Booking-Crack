@@ -98,9 +98,6 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
             </tr>
           </tbody>
         </table>
-        {/* {order.Payment[0].status === "unpaid" ? (
-          <PaymentButton order={order} />
-        ) : null} */}
       </div>
     </div>
   );
