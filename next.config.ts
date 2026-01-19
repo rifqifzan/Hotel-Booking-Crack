@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   async headers() {
     return [
       {
@@ -10,7 +9,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://crack-fe-rifqifzan.vercel.app",
+            value: "*",
           },
           {
             key: "Access-Control-Allow-Methods",
