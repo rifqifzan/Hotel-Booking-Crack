@@ -8,7 +8,10 @@ const nextConfig: NextConfig = {
         // matching all API routes
         source: "/api/payment/notification/:path*",
         headers: [
-          { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://crack-fe-rifqifzan.vercel.app",
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,POST",
