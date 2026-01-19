@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: "*",
+            value: "https://crack-fe-rifqifzan.vercel.app/",
           },
           {
             key: "Access-Control-Allow-Methods",
