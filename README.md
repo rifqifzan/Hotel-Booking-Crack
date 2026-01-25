@@ -101,7 +101,7 @@ Open [http://localhost:3000] with your browser to see the result.
 ├── types/            # TypeScript type definitions
 ├── .env              # Environment variables
 └── package.json      # Project dependencies and scripts
-
+```
 
 ## 📊 Entity Relationship Diagram (ERD)
 
