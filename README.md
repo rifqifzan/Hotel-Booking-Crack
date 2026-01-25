@@ -101,4 +101,24 @@ Open [http://localhost:3000] with your browser to see the result.
 ├── types/            # TypeScript type definitions
 ├── .env              # Environment variables
 └── package.json      # Project dependencies and scripts
-```
+
+
+## 📊 Entity Relationship Diagram (ERD)
+
+The Entity-Relationship Diagram (ERD) below illustrates the database architecture of RevoHotel, showcasing the relationships between core entities such as Users, Rooms, Reservations, Payments, and Amenities to ensure a robust and scalable booking system.
+
+![ERD RevoHotel](./public/ERD-crack.webp)
+
+## 🌐 Website Live Preview
+
+Below are some snapshots of the RevoHotel platform in action:
+
+### Home Page
+![Home Page](./public/Home-crack.webp)
+
+### Feature Previews
+![Snapshot 1](./public/crackSS1.webp)
+![Snapshot 2](./public/crackSS2.webp)
+![Snapshot 3](./public/crackSS3.webp)
+![Snapshot 4](./public/crackSS4.webp)
+
