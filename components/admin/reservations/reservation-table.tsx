@@ -3,8 +3,8 @@ import { getAllReservations } from "@/lib/data";
 import CancelModal from "./cancel-modal";
 import clsx from "clsx";
 
-const ReservationTable = async () => {
-  const reservations = await getAllReservations();
+const ReservationTable = async ({ query }: { query?: string }) => {
+  const reservations = await getAllReservations(query);
   if (!reservations?.length) return <p>No Active Reservations Found</p>;
 
   return (

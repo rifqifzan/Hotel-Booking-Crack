@@ -143,13 +143,52 @@ export const getReservationByRoomId = async (roomId: string) => {
   return result;
 };
 
-export const getAllReservations = async () => {
+export const getAllReservations = async (query?: string) => {
   try {
-    const result = await prisma.reservation.findMany({
-      where: {
+    const filters: any[] = [
+      {
         CancelledReservation: {
           is: null,
         },
+      },
+    ];
+
+    if (query) {
+      const lowerQuery = query.toLowerCase();
+      const dateQuery = new Date(query);
+      const isDate = !isNaN(dateQuery.getTime());
+
+      const orConditions: any[] = [
+        { User: { name: { contains: query, mode: "insensitive" } } },
+        { User: { email: { contains: query, mode: "insensitive" } } },
+        { Room: { name: { contains: query, mode: "insensitive" } } },
+      ];
+
+      if (isDate) {
+         // Create start and end of the day for date comparison
+        const startOfDay = new Date(dateQuery.setHours(0, 0, 0, 0));
+        const endOfDay = new Date(dateQuery.setHours(23, 59, 59, 999));
+        
+        orConditions.push({
+            startDate: {
+                gte: startOfDay,
+                lte: endOfDay
+            }
+        });
+         orConditions.push({
+            endDate: {
+                gte: startOfDay,
+                lte: endOfDay
+            }
+        });
+      }
+      
+      filters.push({ OR: orConditions });
+    }
+
+    const result = await prisma.reservation.findMany({
+      where: {
+        AND: filters,
       },
       include: {
         Room: {
