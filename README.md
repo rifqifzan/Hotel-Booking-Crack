@@ -117,8 +117,12 @@ Below are some snapshots of the RevoHotel platform in action:
 ![Home Page](./public/Home-crack.webp)
 
 ### Feature Previews
-![Snapshot 1](./public/crackSS1.webp)
-![Snapshot 2](./public/crackSS2.webp)
-![Snapshot 3](./public/crackSS3.webp)
-![Snapshot 4](./public/crackSS4.webp)
+
+#### User Features
+![User Room List](./public/crackSS1.webp)
+![User Reservation](./public/crackSS2.webp)
+
+#### Admin Features
+![Admin Room Management](./public/crackSS3.webp)
+![Admin Reservation Management](./public/crackSS4.webp)
 
