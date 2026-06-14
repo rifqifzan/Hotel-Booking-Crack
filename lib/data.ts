@@ -154,7 +154,6 @@ export const getAllReservations = async (query?: string) => {
     ];
 
     if (query) {
-      const lowerQuery = query.toLowerCase();
       const dateQuery = new Date(query);
       const isDate = !isNaN(dateQuery.getTime());
 
