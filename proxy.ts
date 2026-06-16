@@ -3,7 +3,7 @@ import { auth } from "@/auth";
 
 const ProtectedRoutes = ["/myreservation", "/checkout", "/admin"];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const session = await auth();
   const isLoggedIn = !!session?.user;
   const role = session?.user.role;
