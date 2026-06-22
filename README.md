@@ -4,7 +4,7 @@ RevoHotel is a modern Hotel Booking Platform built with the latest web technolog
 
 ## 🚀 Deployed Link
 
-https://crack-fe-rifqifzan.vercel.app/
+https://hotel-booking-crack.vercel.app/
 
 ## 🚀 Tech Stack
 
@@ -114,15 +114,17 @@ The Entity-Relationship Diagram (ERD) below illustrates the database architectur
 Below are some snapshots of the RevoHotel platform in action:
 
 ### Home Page
+
 ![Home Page](./public/Home-crack.webp)
 
 ### Feature Previews
 
 #### User Features
+
 ![User Room List](./public/crackSS1.webp)
 ![User Reservation](./public/crackSS2.webp)
 
 #### Admin Features
+
 ![Admin Room Management](./public/crackSS3.webp)
 ![Admin Reservation Management](./public/crackSS4.webp)
-
